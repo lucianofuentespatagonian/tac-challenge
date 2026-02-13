@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\LucianoFuentes.PC\\\\Workspace\\\\patagonian\" /s /b)",
+      "Bash(git -C \"C:\\\\Users\\\\LucianoFuentes.PC\\\\Workspace\\\\patagonian\" log --oneline)",
+      "Bash(git -C \"C:\\\\Users\\\\LucianoFuentes.PC\\\\Workspace\\\\patagonian\" show --stat HEAD)",
+      "Bash(git -C \"C:\\\\Users\\\\LucianoFuentes.PC\\\\Workspace\\\\patagonian\" config -l)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --src-dir --import-alias \"@/*\" --no-git)",
+      "Bash(npx create-next-app@latest temp-next-project --typescript --tailwind --app --src-dir --import-alias \"@/*\" --no-git)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init -p)",
+      "Bash(npm run build:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}
