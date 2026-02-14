@@ -229,6 +229,14 @@ def fetch_open_issues(repo_path: str) -> List[GitHubIssueListItem]:
         print(f"Fetched {len(issues)} open issues")
         return issues
 
+    except FileNotFoundError:
+        print("ERROR: GitHub CLI (gh) is not installed or not in PATH.", file=sys.stderr)
+        print("\nTo install gh on Windows:", file=sys.stderr)
+        print("  - Using winget: winget install --id GitHub.cli", file=sys.stderr)
+        print("  - Using scoop: scoop install gh", file=sys.stderr)
+        print("  - Or download from: https://github.com/cli/cli/releases", file=sys.stderr)
+        print("\nAfter installation, authenticate with: gh auth login", file=sys.stderr)
+        return []
     except subprocess.CalledProcessError as e:
         print(f"ERROR: Failed to fetch issues: {e.stderr}", file=sys.stderr)
         return []
@@ -266,6 +274,12 @@ def fetch_issue_comments(repo_path: str, issue_number: int) -> List[Dict]:
         # DEBUG level - not printing
         return comments
 
+    except FileNotFoundError:
+        print(
+            f"ERROR: GitHub CLI (gh) is not installed or not in PATH.",
+            file=sys.stderr,
+        )
+        return []
     except subprocess.CalledProcessError as e:
         print(
             f"ERROR: Failed to fetch comments for issue #{issue_number}: {e.stderr}",
